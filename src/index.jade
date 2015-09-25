@@ -1,0 +1,81 @@
+doctype html
+html
+	head
+		link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.css')
+	body
+		html
+body
+	nav.navbar.navbar-default
+		.container
+			ul.nav.navbar-nav
+				li.active
+					a(href='#') Home
+				li
+					a(href='#') Notifications
+				li
+					a(href='#') Messages
+			ul.nav.navbar-nav.navbar-right
+				li
+					form.navbar-form.navbar-right(role='search')
+						.input-group
+							input.form-control(type='text', placeholder='Search Twitter')
+							.input-group-btn
+								button.btn.btn-default(type='submit') Submit
+				li.dropdown
+					a.dropdown-toggle(href='#', data-toggle='dropdown')
+						img(height='20' src='https://pbs.twimg.com/profile_images/531414442739646464/Hc6G_ekH_normal.jpeg')
+					ul.dropdown-menu
+						li
+							a(href='#')
+								b Sargon Piraev
+								br
+								small View profile
+						li.divider
+						li
+							a(href='#') Lists
+						li.divider
+						li
+							a(href='#') Help
+						li
+							a(href='#') Keyboard shortcuts
+						li.divider
+						li
+							a(href='#') Settings
+						li
+							a(href='#') Log out
+				li
+					button.btn.btn-primary.navbar-btn.navbar-right Tweet
+	main.container
+		.row
+			.col-md-3
+				.profile
+				.trends
+			.col-md-6
+				.panel.panel-info
+					.panel-heading
+						.input-group
+							span.input-group-addon
+								img(height='20' src='https://pbs.twimg.com/profile_images/531414442739646464/Hc6G_ekH_normal.jpeg')
+							input.form-control
+							.input-group-btn
+								button.btn.btn-primary Add photos
+					ul.list-group
+						li.list-group-item View 23 new Tweets
+					.panel-body
+						.media
+							.media-left
+								a(href='#')
+									img.media-object(src='https://pbs.twimg.com/profile_images/643463843541155841/pmMygGUP_bigger.jpg')
+							.media-body
+								h4.media-heading Imperva Imcapsula
+								p Get conversions by understanding buyer personas
+								img(src="https://pbs.twimg.com/media/B75xFR9IAAMr9eH.jpg" width='100%')
+			.col-md-3
+				.who-to-follow
+				.stuff
+
+	script(src='../bower_components/jquery/dist/jquery.js')
+	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
+
+
+
