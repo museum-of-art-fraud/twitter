@@ -1,18 +1,31 @@
 var User = Backbone.Model.extend({});
-var Tweet = Backbone.Model.extend({});
-var Trend = Backbone.Model.extend({});
 
 var Users = Backbone.Collection.extend({
 	model: User
 });
-var Tweets = Backbone.Collection.extend({
-	model: Tweet
-});
-var Trends = Backbone.Collection.extend({
-	model: Trend
-});
 
 var UserSuggestionView = Marionette.ItemView.extend({
-	template: ''
+	className: 'media',
+	template: '#user-suggestion',
+	//onRender: function () {
+	//	this.$el = this.$el.children();
+	//	this.$el.unwrap();
+	//	this.setElement(this.$el);
+	//}
 });
 
+var UsersSuggestionView = Marionette.CollectionView.extend({
+	childView: UserSuggestionView
+});
+
+var users = new Users([
+	{name: 'hello'},
+	{name: 'world'}
+]);
+
+var usersSuggestionView = new UsersSuggestionView({
+	collection: users,
+	el: '.medias'
+});
+
+usersSuggestionView.render();
