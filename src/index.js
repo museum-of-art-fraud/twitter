@@ -15,3 +15,4 @@ var Trends = Backbone.Collection.extend({
 var UserSuggestionView = Marionette.ItemView.extend({
 	template: ''
 });
+
