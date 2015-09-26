@@ -22,10 +22,16 @@ gulp.task 'coffee', ->
 	.pipe do coffee
 	.pipe gulp.dest 'dest'
 
+gulp.task 'js', ->
+	gulp
+	.src 'src/**/*.js'
+	.pipe gulp.dest 'dest'
+
 gulp.task 'watch', ->
 	gulp.watch 'src/**/*.jade', ['jade']
 	gulp.watch 'src/**/*.styl', ['stylus']
 	gulp.watch 'src/**/*.coffee', ['coffee']
+	gulp.watch 'src/**/*.js', ['js']
 
-gulp.task 'dev', ['jade', 'stylus', 'coffee', 'watch']
+gulp.task 'dev', ['jade', 'stylus', 'coffee', 'watch', 'js']
 gulp.task 'default', ['dev']

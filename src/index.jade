@@ -2,6 +2,7 @@ doctype html
 html
 	head
 		link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.css')
+		link(rel='stylesheet' href="index.css")
 	body
 		html
 body
@@ -71,11 +72,79 @@ body
 								p Get conversions by understanding buyer personas
 								img(src="https://pbs.twimg.com/media/B75xFR9IAAMr9eH.jpg" width='100%')
 			.col-md-3
-				.who-to-follow
-				.stuff
+				.who-to-follow.panel.panel-info
+					.panel-body
+						h4 Близкие по духу
+						.media
+							.media-left
+								a(href="#")
+									img.media-object(src="https://pbs.twimg.com/profile_images/3143170434/4fa029fa4c9790a577d89ff63b43b73e_normal.jpeg")
+							.media-body
+								h5.media-heading Katrin Smith
+								button.btn.btn-default.btn-sm
+									span.glyphicon.glyphicon-user(aria-hidden="true")
+									| Читать
+						.media
+							.media-left
+								a(href="#")
+									img.media-object(src="https://pbs.twimg.com/profile_images/523746093440331776/NWeBm6se_normal.png")
+							.media-body
+								h5.media-heading Виктор Мединский
+								button.btn.btn-default.btn-sm
+									span.glyphicon.glyphicon-user(aria-hidden="true")
+									| Читать
+						.media
+							.media-left
+								a(href="#")
+									img.media-object(src="https://pbs.twimg.com/profile_images/2284174695/xwwu3vzo9896ljcs5ieq_normal.png")
+							.media-body
+								h5.media-heading Поддержка
+								button.btn.btn-default.btn-sm
+									span.glyphicon.glyphicon-user(aria-hidden="true")
+									| Читать
+						
+				.stuff.panel.panel-info
+					.panel-body
+						ul
+							li.Footer-item.Footer-copyright.copyright © 2015 Twitter
+							li.Footer-item
+								a.Footer-link(href='/about') О нас
+							li.Footer-item
+								a.Footer-link(href='//support.twitter.com') Помощь
+							li.Footer-item
+								a.Footer-link(href='/tos') Условия
+							li.Footer-item
+								a.Footer-link(href='/privacy') Конфиденциальность
+							li.Footer-item
+								a.Footer-link(href='//support.twitter.com/articles/20170514') Файлы cookie
+							li.Footer-item
+								a.Footer-link(href='//support.twitter.com/articles/20170451') О рекламе
+							li.Footer-item
+								a.Footer-link(href='//about.twitter.com/press/brand-assets') Бренд
+							li.Footer-item
+								a.Footer-link(href='https://blog.twitter.com') Блог
+							li.Footer-item
+								a.Footer-link(href='http://status.twitter.com') Состояние
+							li.Footer-item
+								a.Footer-link(href='https://about.twitter.com/products') Приложения
+							li.Footer-item
+								a.Footer-link(href='https://about.twitter.com/careers') Вакансии
+							li.Footer-item
+								a.Footer-link(href='//ads.twitter.com/start?ref=gl-tw-tw-twitter-advertise') Реклама в Твиттере
+							li.Footer-item
+								a.Footer-link(href='https://business.twitter.com') Компаниям
+							li.Footer-item
+								a.Footer-link(href='//media.twitter.com') СМИ
+							li.Footer-item
+								a.Footer-link(href='//dev.twitter.com') Разработчикам
+
 
 	script(src='../bower_components/jquery/dist/jquery.js')
 	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
+	script(src="../bower_components/underscore/underscore-min.js")
+	script(src="../bower_components/backbone/backbone-min.js")
+	script(src="../bower_components/marionette/marionette/backbone.marionette.min.js")
+	script(src="index.js")
 
 
 
