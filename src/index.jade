@@ -48,8 +48,44 @@ body
 	main.container
 		.row
 			.col-md-3
-				.profile
-				.trends
+				.panel.panel-default
+					img(src='https://pbs.twimg.com/profile_banners/2868041297/1415534069/600x200' width='100%')
+					.panel-body
+						.row
+							.col-md-4
+								a.thumbnail(href='#')
+									img(src='https://pbs.twimg.com/profile_images/531414442739646464/Hc6G_ekH_bigger.jpeg' width='100%')
+							.col-md-8
+								h4 Sargon Piraev
+								small @sargonpiraev
+						.row
+							.col-md-4
+								span Tweets
+								br
+								b 4
+							.col-md-4
+								span Following
+								br
+								b 342
+							.col-md-4
+								span Followers
+								br
+								b 39
+				.panel.panel-default
+					.panel-body
+						h4 Trends
+						ul.list-unstyled
+							li #COYS
+							li #НасосБезСмс
+							li #PopeInPhilly
+							li #3YearsRIPAvalanna
+							li De Bruyne
+							li #лшфолловятлш
+							li Otamendi
+							li Aguero
+							li Азербайджана
+							li Hart
+
 			.col-md-6
 				.panel.panel-info
 					.panel-heading
@@ -70,12 +106,33 @@ body
 								h4.media-heading Imperva Imcapsula
 								p Get conversions by understanding buyer personas
 								img(src="https://pbs.twimg.com/media/B75xFR9IAAMr9eH.jpg" width='100%')
+								.row
+									.col-md-2
+										button.btn.btn-link
+											span.glyphicon.glyphicon-share-alt
+									.col-md-2
+										button.btn.btn-link
+											span.glyphicon.glyphicon-retweet
+											span  4
+									.col-md-2
+										button.btn.btn-link
+											span.glyphicon.glyphicon-star
+									.col-md-2
+										.dropdown
+											button.btn.btn-link.dropdown-toggle(type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true")
+												span.glyphicon.glyphicon-option-horizontal
+											ul.dropdown-menu(aria-labelledby="dropdownMenu1")
+												li
+													a(href='#') Share via Direct Message
 			.col-md-3
 				.who-to-follow
 				.stuff
 
 	script(src='../bower_components/jquery/dist/jquery.js')
 	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
-
+	script(src='../bower_components/underscore/underscore.js')
+	script(src='../bower_components/backbone/backbone.js')
+	script(src='../bower_components/marionette/lib/core/backbone.marionette.js')
+	script(src='index.js')
 
 

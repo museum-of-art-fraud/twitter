@@ -7,7 +7,7 @@ coffee = require 'gulp-coffee'
 gulp.task 'jade', ->
 	gulp
 	.src 'src/**/*.jade'
-	.pipe do jade
+	.pipe jade pretty: yes
 	.pipe gulp.dest 'dest'
 
 gulp.task 'stylus', ->
@@ -22,10 +22,16 @@ gulp.task 'coffee', ->
 	.pipe do coffee
 	.pipe gulp.dest 'dest'
 
+gulp.task 'js', ->
+	gulp
+	.src 'src/**/*.js'
+	.pipe gulp.dest 'dest'
+
 gulp.task 'watch', ->
 	gulp.watch 'src/**/*.jade', ['jade']
 	gulp.watch 'src/**/*.styl', ['stylus']
 	gulp.watch 'src/**/*.coffee', ['coffee']
+	gulp.watch 'src/**/*.js', ['js']
 
-gulp.task 'dev', ['jade', 'stylus', 'coffee', 'watch']
+gulp.task 'dev', ['jade', 'stylus', 'coffee', 'js', 'watch']
 gulp.task 'default', ['dev']
