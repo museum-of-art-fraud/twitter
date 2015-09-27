@@ -9,6 +9,16 @@ app.get('/users', function (req, res) {
 	]);
 });
 
+app.get('/tweets', function (req, res) {
+	res.set('Access-Control-Allow-Origin', '*');
+	res.json([
+		{author: 'Jack Bill', text: 'Here the text of the news 1 goes'},
+		{author: 'Marry Key', text: 'Here the text 2 goes'},
+		{author: 'Clue Bill', text: 'The text 3 of the news 1 goes'},
+		{author: 'Lilly Key', text: 'Here the text 4 goes'}
+	]);
+});
+
 app.get('/trends', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
 	res.json([
@@ -22,16 +32,6 @@ app.get('/trends', function (req, res) {
 		{name: 'Ron Dennis'},
 		{name: '#ThankYouALDUBNation'},
 		{name: 'Frank Tyson'}
-	]);
-});
-
-app.get('/tweets', function (req, res) {
-	res.set('Access-Control-Allow-Origin', '*');
-	res.json([
-		{author: 'Jack Bill', text: 'Here the text of the news 1 goes'},
-		{author: 'Marry Key', text: 'Here the text 2 goes'},
-		{author: 'Clue Bill', text: 'The text 3 of the news 1 goes'},
-		{author: 'Lilly Key', text: 'Here the text 4 goes'}
 	]);
 });
 

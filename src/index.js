@@ -1,4 +1,3 @@
-
 var userSuggestionCollection = new UserCollection();
 userSuggestionCollection.fetch();
 
