@@ -1,0 +1,1 @@
+var TweetModel = Backbone.Model.extend({});

@@ -66,33 +66,7 @@ body
 								button.btn.btn-primary Add photos
 					ul.list-group
 						li.list-group-item View 23 new Tweets
-					.panel-body
-						.media
-							.media-left
-								a(href='#')
-									img.media-object(src='https://pbs.twimg.com/profile_images/643463843541155841/pmMygGUP_bigger.jpg')
-							.media-body
-								h4.media-heading Imperva Imcapsula
-								p Get conversions by understanding buyer personas
-								img(src="https://pbs.twimg.com/media/B75xFR9IAAMr9eH.jpg" width='100%')
-								.row
-									.col-md-2
-										button.btn.btn-link
-											span.glyphicon.glyphicon-share-alt
-									.col-md-2
-										button.btn.btn-link
-											span.glyphicon.glyphicon-retweet
-											span  4
-									.col-md-2
-										button.btn.btn-link
-											span.glyphicon.glyphicon-star
-									.col-md-2
-										.dropdown
-											button.btn.btn-link.dropdown-toggle(type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true")
-												span.glyphicon.glyphicon-option-horizontal
-											ul.dropdown-menu(aria-labelledby="dropdownMenu1")
-												li
-													a(href='#') Share via Direct Message
+					.panel-body.tweets-block
 			.col-md-3
 				.who-to-follow.panel.panel-info
 					.panel-body
@@ -137,6 +111,7 @@ body
 	include ./template/user-suggestion
 	include ./template/trend
 	include ./template/user-profile
+	include ./template/tweet
 	script(src='../bower_components/jquery/dist/jquery.js')
 	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
 	script(src='../bower_components/underscore/underscore.js')
@@ -144,10 +119,14 @@ body
 	script(src='../bower_components/marionette/lib/backbone.marionette.js')
 	script(src='model/UserModel.js')
 	script(src='model/TrendModel.js')
+	script(src='model/TweetModel.js')
 	script(src='collection/UserCollection.js')
 	script(src='collection/TrendCollection.js')
+	script(src='collection/TweetCollection.js')
 	script(src='view/UserSuggestionItemView.js')
 	script(src='view/UserSuggestionCollectionView.js')
+	script(src='view/TweetItemView.js')
+	script(src='view/TweetCollectionView.js')
 	script(src='view/TrendItemView.js')
 	script(src='view/TrendCollectionView.js')
 	script(src='view/UserProfileItemView.js')
