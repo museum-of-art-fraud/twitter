@@ -1,7 +1,5 @@
-var userSuggestionCollection = new UserCollection([
-	{name: 'hello'},
-	{name: 'world'}
-]);
+var userSuggestionCollection = new UserCollection();
+userSuggestionCollection.fetch();
 
 var userSuggestionCollectionView = new UsersSuggestionCollectionView({
 	collection: userSuggestionCollection,
@@ -10,18 +8,8 @@ var userSuggestionCollectionView = new UsersSuggestionCollectionView({
 
 userSuggestionCollectionView.render();
 
-var trendCollection = new TrendCollection([
-	{name: '#Marr'},
-	{name: 'Jean de Villiers'},
-	{name: '#танцынатнт'},
-	{name: 'Cereal Cafe'},
-	{name: '#GratefulYammouni'},
-	{name: 'Sanusi'},
-	{name: '#НасосБезСмс'},
-	{name: 'Ron Dennis'},
-	{name: '#ThankYouALDUBNation'},
-	{name: 'Frank Tyson'}
-]);
+var trendCollection = new TrendCollection();
+trendCollection.fetch();
 
 var trendCollectionView = new TrendCollectionView({
 	collection: trendCollection,
@@ -46,12 +34,8 @@ userProfileItemView = new UserProfileItemView({
 
 userProfileItemView.render();
 
-var tweetCollection = new TweetCollection([
-	{author: 'Jack Bill', text: 'Here the text of the news 1 goes'},
-	{author: 'Marry Key', text: 'Here the text 2 goes'},
-	{author: 'Clue Bill', text: 'The text 3 of the news 1 goes'},
-	{author: 'Lilly Key', text: 'Here the text 4 goes'}
-]);
+var tweetCollection = new TweetCollection();
+tweetCollection.fetch();
 
 var tweetCollecionView = new TweetCollectionView({
 	collection: tweetCollection,

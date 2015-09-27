@@ -1,3 +1,4 @@
 var TrendCollection = Backbone.Collection.extend({
-	model: TrendModel
+	model: TrendModel,
+	url: 'http://localhost:3000/trends'
 });
