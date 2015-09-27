@@ -1,0 +1,1 @@
+var TrendModel = Backbone.Model.extend({});

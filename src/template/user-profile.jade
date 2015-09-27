@@ -1,0 +1,24 @@
+script(id='user-profile' type='text/html')
+	.panel.panel-default
+		img(src='https://pbs.twimg.com/profile_banners/2868041297/1415534069/600x200' width='100%')
+		.panel-body
+			.row
+				.col-md-4
+					a.thumbnail(href='#')
+						img(src='https://pbs.twimg.com/profile_images/531414442739646464/Hc6G_ekH_bigger.jpeg' width='100%')
+				.col-md-8
+					h4 <%= firstName %> <%= lastName %>
+					small <%= userName %>
+			.row
+				.col-md-4
+					span Tweets
+					br
+					b <%= tweetTotal %>
+				.col-md-4
+					span Following
+					br
+					b <%= followingTotal %>
+				.col-md-4
+					span Followers
+					br
+					b <%= followerTotal %>

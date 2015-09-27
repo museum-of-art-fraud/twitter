@@ -49,44 +49,12 @@ body
 	main.container
 		.row
 			.col-md-3
-				.panel.panel-default
-					img(src='https://pbs.twimg.com/profile_banners/2868041297/1415534069/600x200' width='100%')
-					.panel-body
-						.row
-							.col-md-4
-								a.thumbnail(href='#')
-									img(src='https://pbs.twimg.com/profile_images/531414442739646464/Hc6G_ekH_bigger.jpeg' width='100%')
-							.col-md-8
-								h4 Sargon Piraev
-								small @sargonpiraev
-						.row
-							.col-md-4
-								span Tweets
-								br
-								b 4
-							.col-md-4
-								span Following
-								br
-								b 342
-							.col-md-4
-								span Followers
-								br
-								b 39
-				.panel.panel-default
-					.panel-body
-						h4 Trends
-						ul.list-unstyled
-							li #COYS
-							li #НасосБезСмс
-							li #PopeInPhilly
-							li #3YearsRIPAvalanna
-							li De Bruyne
-							li #лшфолловятлш
-							li Otamendi
-							li Aguero
-							li Азербайджана
-							li Hart
-
+				.profile
+				.trends
+					.panel.panel-default
+						.panel-body
+							h4 Trends
+							ul.trends-list.list-unstyled
 			.col-md-6
 				.panel.panel-info
 					.panel-heading
@@ -167,11 +135,22 @@ body
 								a.Footer-link(href='//dev.twitter.com') Разработчикам
 
 	include ./template/user-suggestion
+	include ./template/trend
+	include ./template/user-profile
 	script(src='../bower_components/jquery/dist/jquery.js')
 	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
 	script(src='../bower_components/underscore/underscore.js')
 	script(src='../bower_components/backbone/backbone.js')
 	script(src='../bower_components/marionette/lib/backbone.marionette.js')
+	script(src='model/UserModel.js')
+	script(src='model/TrendModel.js')
+	script(src='collection/UserCollection.js')
+	script(src='collection/TrendCollection.js')
+	script(src='view/UserSuggestionItemView.js')
+	script(src='view/UserSuggestionCollectionView.js')
+	script(src='view/TrendItemView.js')
+	script(src='view/TrendCollectionView.js')
+	script(src='view/UserProfileItemView.js')
 	script(src='index.js')
 
 

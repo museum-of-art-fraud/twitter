@@ -1,31 +1,47 @@
-var User = Backbone.Model.extend({});
-
-var Users = Backbone.Collection.extend({
-	model: User
-});
-
-var UserSuggestionView = Marionette.ItemView.extend({
-	className: 'media',
-	template: '#user-suggestion',
-	//onRender: function () {
-	//	this.$el = this.$el.children();
-	//	this.$el.unwrap();
-	//	this.setElement(this.$el);
-	//}
-});
-
-var UsersSuggestionView = Marionette.CollectionView.extend({
-	childView: UserSuggestionView
-});
-
-var users = new Users([
+var userSuggestionCollection = new UserCollection([
 	{name: 'hello'},
 	{name: 'world'}
 ]);
 
-var usersSuggestionView = new UsersSuggestionView({
-	collection: users,
+var userSuggestionCollectionView = new UsersSuggestionCollectionView({
+	collection: userSuggestionCollection,
 	el: '.medias'
 });
 
-usersSuggestionView.render();
+userSuggestionCollectionView.render();
+
+var trendCollection = new TrendCollection([
+	{name: '#Marr'},
+	{name: 'Jean de Villiers'},
+	{name: '#танцынатнт'},
+	{name: 'Cereal Cafe'},
+	{name: '#GratefulYammouni'},
+	{name: 'Sanusi'},
+	{name: '#НасосБезСмс'},
+	{name: 'Ron Dennis'},
+	{name: '#ThankYouALDUBNation'},
+	{name: 'Frank Tyson'}
+]);
+
+var trendCollectionView = new TrendCollectionView({
+	collection: trendCollection,
+	el: '.trends-list'
+});
+
+trendCollectionView.render();
+
+var userProfileModel = new UserModel({
+	firstName: 'Sargon',
+	lastName: 'Piraev',
+	userName: '@sargonpiraev',
+	tweetTotal: '4',
+	followingTotal: '324',
+	followerTotal: '32'
+});
+
+userProfileItemView = new UserProfileItemView({
+	model: userProfileModel,
+	el: '.profile'
+});
+
+userProfileItemView.render();
