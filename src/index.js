@@ -29,3 +29,18 @@ var usersSuggestionView = new UsersSuggestionView({
 });
 
 usersSuggestionView.render();
+
+// Tweets display
+var tweets = new Tweets([
+	{author: 'Jack Bill', text: 'Here the text of the news 1 goes'},
+	{author: 'Marry Key', text: 'Here the text 2 goes'},
+	{author: 'Clue Bill', text: 'The text 3 of the news 1 goes'},
+	{author: 'Lilly Key', text: 'Here the text 4 goes'}
+]);
+
+var tweetCollecionView = new TweetCollectionView({
+	collection: tweets,
+	el: '.tweets-block'
+});
+
+tweetCollecionView.render();
