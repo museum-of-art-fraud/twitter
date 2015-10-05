@@ -36,10 +36,16 @@ userProfileItemView.render();
 
 var tweetCollection = new TweetCollection();
 tweetCollection.fetch();
-
 var tweetCollecionView = new TweetCollectionView({
 	collection: tweetCollection,
 	el: '.tweets-block'
 });
-
 tweetCollecionView.render();
+
+var whoToFollowCollection = new UserCollection();
+whoToFollowCollection.fetch();
+whoToFollowCompositeView = new WhoToFollowCompositeView({
+	el: '.who-to-follow',
+	collection: whoToFollowCollection
+});
+whoToFollowCompositeView.render();

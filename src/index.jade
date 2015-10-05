@@ -46,24 +46,28 @@ body
 							a(href='#') Log out
 				li
 					button.btn.btn-primary.navbar-btn.navbar-right Tweet
-	header.canopy
-		.container
-			.row
-				.col-md-2
-					.thumbnail
-						img(src='https://pbs.twimg.com/profile_images/531414442739646464/Hc6G_ekH_400x400.jpeg')
-	nav.navbar.navbar-default
-		.container
-			.row
-				.col-md-9.col-md-offset-3
-					ul.nav.navbar-nav
-						li.active
-							a(href='#') Tweets
-						li
-							a(href='#') Following
-						li
-							a(href='#') Followers
-					button.btn.btn-default.navbar-btn.pull-right Edit profile
+	.main-region
+
+
+
+	//header.canopy
+	//	.container
+	//		.row
+	//			.col-md-2
+	//				.thumbnail
+	//					img(src='https://pbs.twimg.com/profile_images/531414442739646464/Hc6G_ekH_400x400.jpeg')
+	//nav.navbar.navbar-default
+	//	.container
+	//		.row
+	//			.col-md-9.col-md-offset-3
+	//				ul.nav.navbar-nav
+	//					li.active
+	//						a(href='#') Tweets
+	//					li
+	//						a(href='#') Following
+	//					li
+	//						a(href='#') Followers
+	//				button.btn.btn-default.navbar-btn.pull-right Edit profile
 
 	main.container
 		.row
@@ -91,11 +95,7 @@ body
 						li.list-group-item View 23 new Tweets
 					.panel-body.tweets-block
 			.col-md-3
-				.who-to-follow.panel.panel-info
-					.panel-body
-						h4 Близкие по духу
-						.medias
-						
+				.who-to-follow
 				.stuff.panel.panel-info
 					.panel-body
 						ul
@@ -135,6 +135,12 @@ body
 	include ./template/trend
 	include ./template/user-profile
 	include ./template/tweet
+	include template/who-to-follow-composite-view-template
+	include template/who-to-follow-item-view-template
+
+	include template/home-page-template
+	include template/profile-page-template
+
 	script(src='../bower_components/jquery/dist/jquery.js')
 	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
 	script(src='../bower_components/underscore/underscore.js')
@@ -153,6 +159,8 @@ body
 	script(src='view/TrendItemView.js')
 	script(src='view/TrendCollectionView.js')
 	script(src='view/UserProfileItemView.js')
+	script(src='view/WhoToFollowItemView.js')
+	script(src='view/WhoToFollowCompositeView.js')
 	script(src='index.js')
 
 
