@@ -10,7 +10,7 @@ var HomePageLayoutView = Marionette.LayoutView.extend({
 		var whoToFollowUserCollection = new UserCollection();
 		var trendCollection = new TrendCollection();
 		var tweetCollection = new TweetCollection();
-		var userProfileModel = new UserModel({
+		var homePageProfileModel = new UserModel({
 			firstName: 'Sargon',
 			lastName: 'Piraev',
 			userName: '@sargonpiraev',
@@ -22,12 +22,12 @@ var HomePageLayoutView = Marionette.LayoutView.extend({
 		var whoToFollowCompositeView = new WhoToFollowCompositeView({collection: whoToFollowUserCollection});
 		var trendCompositeView = new TrendCompositeView({collection: trendCollection});
 		var tweetCollectionView = new TweetCollectionView({collection: tweetCollection});
-		var userProfileItemView = new UserProfileItemView({model: userProfileModel});
+		var homePageProfileItemView = new HomePageProfileItemView({model: homePageProfileModel});
 
 		this.showChildView('whoToFollow', whoToFollowCompositeView);
 		this.showChildView('trends', trendCompositeView);
 		this.showChildView('tweets', tweetCollectionView);
-		this.showChildView('profile', userProfileItemView);
+		this.showChildView('profile', homePageProfileItemView);
 
 		whoToFollowUserCollection.fetch();
 		trendCollection.fetch();
