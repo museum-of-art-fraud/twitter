@@ -1,3 +1,18 @@
+var App = new Marionette.Application();
+App.on('start', function(){
+	Backbone.history.start();
+});
+
+var AppLayoutView = Marionette.LayoutView.extend({
+	el: 'body',
+	regions: {
+		headerRegion: '.navbar-twitter',
+		mainRegion: '.main-twitter'
+	}
+});
+
+
+
 var userSuggestionCollection = new UserCollection();
 userSuggestionCollection.fetch();
 
@@ -13,7 +28,7 @@ trendCollection.fetch();
 
 var trendCollectionView = new TrendCollectionView({
 	collection: trendCollection,
-	el: '.trends-list'
+	el: '.trends'
 });
 
 trendCollectionView.render();

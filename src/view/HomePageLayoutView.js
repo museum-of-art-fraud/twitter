@@ -1,4 +1,4 @@
-var HomePageLayoutView = Marionette.LayoutView.exnted({
+var HomePageLayoutView = Marionette.LayoutView.extend({
 	template: '#home-page-template',
 	regions: {
 		trends: '.trends',
