@@ -1,4 +1,4 @@
-var TrendCollectionView = Marionette.CompositeView.extend({
+var TrendCompositeView = Marionette.CompositeView.extend({
 	tagName: 'ul',
 	className: 'list-unstyled',
 	childView: TrendItemView,
