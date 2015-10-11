@@ -45,8 +45,9 @@ body
 						li
 							a(href='#') Log out
 				li
-					button.btn.btn-primary.navbar-btn.navbar-right Tweet
+					button.btn.btn-primary.navbar-btn.navbar-right.create-tweet Tweet
 	.main-region
+	.modal-region
 
 	include ./template/user-suggestion
 	include ./template/trend
@@ -57,6 +58,7 @@ body
 	include template/who-to-follow-item-view-template
 	include template/home-page-template
 	include template/profile-page-template
+	include template/create-tweet-modal-template
 
 	script(src='../bower_components/jquery/dist/jquery.js')
 	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
@@ -78,6 +80,7 @@ body
 	script(src='view/HomePageProfileItemView.js')
 	script(src='view/WhoToFollowItemView.js')
 	script(src='view/WhoToFollowCompositeView.js')
+	script(src='view/CreateTweetItemView.js')
 	script(src='view/RootLayoutView.js')
 	script(src='view/HomePageLayoutView.js')
 	script(src='view/ProfilePageLayoutView.js')

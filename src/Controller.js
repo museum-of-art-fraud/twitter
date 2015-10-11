@@ -1,9 +1,12 @@
 var Controller = Marionette.Object.extend({
 	initialize: function () {
-		this.rootLayoutView = new RootLayoutView();
+		this.tweetCollection = new TweetCollection();
+		this.rootLayoutView = new RootLayoutView({tweetCollection: this.tweetCollection});
 	},
 	showHome: function () {
-		var homePageLayoutView = new HomePageLayoutView();
+		var homePageLayoutView = new HomePageLayoutView({
+			tweetCollection: this.tweetCollection
+		});
 		this.rootLayoutView.getRegion('main').show(homePageLayoutView);
 	},
 	showProfile: function () {
