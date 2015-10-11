@@ -1,8 +1,7 @@
 script(id='tweet' type='text/html')
-	//.media
 	.media-left
 		a(href='#')
-			img.media-object(src='https://pbs.twimg.com/profile_images/643463843541155841/pmMygGUP_bigger.jpg')
+			img.media-object(width='73px')&attributes({'src': '<%= imageUrl %>'})
 	.media-body
 		h4.media-heading <%= author %>
 		p <%= text %>

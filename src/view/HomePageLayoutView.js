@@ -6,10 +6,13 @@ var HomePageLayoutView = Marionette.LayoutView.extend({
 		whoToFollow: '.who-to-follow',
 		profile: '.profile'
 	},
+	initialize: function (options) {
+		this.tweetCollection = options.tweetCollection;
+	},
 	onBeforeShow: function () {
 		var whoToFollowUserCollection = new UserCollection();
 		var trendCollection = new TrendCollection();
-		var tweetCollection = new TweetCollection();
+		//var tweetCollection = new TweetCollection();
 		var homePageProfileModel = new UserModel({
 			firstName: 'Sargon',
 			lastName: 'Piraev',
@@ -21,7 +24,7 @@ var HomePageLayoutView = Marionette.LayoutView.extend({
 
 		var whoToFollowCompositeView = new WhoToFollowCompositeView({collection: whoToFollowUserCollection});
 		var trendCompositeView = new TrendCompositeView({collection: trendCollection});
-		var tweetCollectionView = new TweetCollectionView({collection: tweetCollection});
+		var tweetCollectionView = new TweetCollectionView({collection: this.tweetCollection});
 		var homePageProfileItemView = new HomePageProfileItemView({model: homePageProfileModel});
 
 		this.showChildView('whoToFollow', whoToFollowCompositeView);
@@ -31,6 +34,6 @@ var HomePageLayoutView = Marionette.LayoutView.extend({
 
 		whoToFollowUserCollection.fetch();
 		trendCollection.fetch();
-		tweetCollection.fetch();
+		this.tweetCollection.fetch();
 	}
 });
