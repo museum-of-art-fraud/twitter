@@ -1,0 +1,6 @@
+script(id='message' type='text/html')
+	| <% if (clientId === socket.id) { %>
+	span.my <%= text %>
+	| <% } else { %>
+	span.not-my <%= text %>
+	| <% } %>

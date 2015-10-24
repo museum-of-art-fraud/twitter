@@ -14,7 +14,7 @@ body
 				li
 					a(href='#') Notifications
 				li
-					a(href='#') Messages
+					a.messages(href='#') Messages
 			ul.nav.navbar-nav.navbar-right
 				li
 					form.navbar-form.navbar-right(role='search')
@@ -59,15 +59,20 @@ body
 	include template/home-page-template
 	include template/profile-page-template
 	include template/create-tweet-modal-template
+	include template/message
+	include template/messenger-composite-view-template
 
 	script(src='../bower_components/jquery/dist/jquery.js')
 	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
 	script(src='../bower_components/underscore/underscore.js')
 	script(src='../bower_components/backbone/backbone.js')
 	script(src='../bower_components/marionette/lib/backbone.marionette.js')
+	script(src='bower_components/socket.io-client/socket.io.js')
 	script(src='model/UserModel.js')
 	script(src='model/TrendModel.js')
 	script(src='model/TweetModel.js')
+	script(src='model/MessageModel.js')
+	script(src='collection/MessageCollection.js')
 	script(src='collection/UserCollection.js')
 	script(src='collection/TrendCollection.js')
 	script(src='collection/TweetCollection.js')
@@ -84,6 +89,8 @@ body
 	script(src='view/HomePageLayoutView.js')
 	script(src='view/ProfilePageLayoutView.js')
 	script(src='view/CreateTweetItemView.js')
+	script(src='view/MessageItemView.js')
+	script(src='view/MessengerCompositeView.js')
 	script(src='Application.js')
 	script(src='Router.js')
 	script(src='Controller.js')

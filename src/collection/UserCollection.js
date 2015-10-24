@@ -1,4 +1,4 @@
 var UserCollection = Backbone.Collection.extend({
-	url: 'http://localhost:3000/users',
+	url: 'http://' + location.hostname + ':3000/users',
 	model: UserModel
 });

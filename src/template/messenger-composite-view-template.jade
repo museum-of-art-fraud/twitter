@@ -1,0 +1,15 @@
+script(id='messenger-composite-view-template' type='text/html')
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-label='Close')
+					span(aria-hidden='true') ×
+				h4.modal-title Alina Poluikova
+			.modal-body
+				ul.messages
+			.modal-footer
+				.input-group
+					input.form-control.message-input
+					.input-group-btn
+						button.btn.btn-default.send-message Send
+

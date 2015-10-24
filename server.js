@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var socketio = require('socket.io');
 
 var app = express();
 
@@ -11,6 +12,8 @@ var tweets = [
 	{author: 'Clue Bill', text: 'The text 3 of the news 1 goes', published: 1444572406073, imageUrl: 'https://pbs.twimg.com/profile_images/643463843541155841/pmMygGUP_bigger.jpg'},
 	{author: 'Lilly Key', text: 'Here the text 4 goes', published: 1444572410359, imageUrl: 'https://pbs.twimg.com/profile_images/643463843541155841/pmMygGUP_bigger.jpg'}
 ];
+
+
 
 app.options('*', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
@@ -37,6 +40,24 @@ app.post('/tweets', function (req, res) {
 	res.json(tweets);
 });
 
+
+
+
+
+var messages = [];
+
+app.get('/messages', function (req, res) {
+	res.set('Access-Control-Allow-Origin', '*');
+	res.json(messages);
+});
+
+app.post('/messages', function (req, res) {
+	res.set('Access-Control-Allow-Origin', '*');
+	messages.push(req.body);
+	res.json(messages);
+	io.sockets.connected[req.body.clientId].broadcast.emit('newMessage', req.body);
+});
+
 app.get('/trends', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
 	res.json([
@@ -61,8 +82,18 @@ app.get('/users/:id', function (req, res) {
 	res.json(users[req.params.id]);
 });
 
+var io = socketio();
+
+io.on('connection', function (socket) {
+	console.log('client connected');
+	//socket.emit('newMessage', {text: 'lala'});
+});
+
 var server = app.listen(3000, function () {
 	var host = server.address().address;
 	var port = server.address().port;
 	console.log('Example app listening at http://%s:%s', host, port);
 });
+
+io.listen(4000);
+

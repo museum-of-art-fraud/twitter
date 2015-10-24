@@ -27,11 +27,17 @@ gulp.task 'js', ->
 	.src 'src/**/*.js'
 	.pipe gulp.dest 'dest'
 
+gulp.task 'bower', ->
+	gulp
+	.src 'bower_components/**/*'
+	.pipe gulp.dest 'dest/bower_components'
+
 gulp.task 'watch', ->
 	gulp.watch 'src/**/*.jade', ['jade']
 	gulp.watch 'src/**/*.styl', ['stylus']
 	gulp.watch 'src/**/*.coffee', ['coffee']
 	gulp.watch 'src/**/*.js', ['js']
 
-gulp.task 'dev', ['jade', 'stylus', 'coffee', 'js', 'watch']
+gulp.task 'dest', ['jade', 'stylus', 'coffee', 'js', 'bower']
+gulp.task 'dev', ['dest', 'watch']
 gulp.task 'default', ['dev']
