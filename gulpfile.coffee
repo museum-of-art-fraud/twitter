@@ -22,10 +22,16 @@ gulp.task 'coffee', ->
 	.pipe do coffee
 	.pipe gulp.dest 'dest'
 
+gulp.task 'bower', ->
+	gulp
+	.src 'bower_components/**/*'
+	.pipe gulp.dest 'dest/bower_components'
+
+
 gulp.task 'js', ->
 	gulp
 	.src 'src/**/*.js'
-	.pipe gulp.dest 'dest'
+	.pipe gulp.dest 'dest'	
 
 gulp.task 'bower', ->
 	gulp
