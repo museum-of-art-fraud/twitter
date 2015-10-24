@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+var socketio = require('socket.io');
 app.use(bodyParser());
 
 app.options('*', function (req, res) {
@@ -31,6 +32,18 @@ app.post('/tweets', function (req, res) {
 	tweets.unshift(req.body);
 	res.json(tweets);
 });
+var messages = [];
+app.get('/messages', function (req, res) {
+	res.set('Access-Control-Allow-Origin', '*');
+	res.json(messages);
+});
+app.post('/messages', function(req, res){
+	res.set('Access-Control-Allow-Origin', '*');
+	messages.push(req.body);
+	res.json(messages);
+	io.sockets.connected[req.body.clientId].broadcast.emit('newMessage', req.body);
+
+});
 
 
 app.get('/trends', function (req, res) {
@@ -56,9 +69,15 @@ app.get('/users/:id', function (req, res) {
 	];
 	res.json(users[req.params.id]);
 });
+var io = socketio();
+io.on('connection', function(socket){
+	console.log('Connected');
+})
 
 var server = app.listen(3000, function () {
 	var host = server.address().address;
 	var port = server.address().port;
 	console.log('Example app listening at http://%s:%s', host, port);
 });
+
+io.listen(4000);

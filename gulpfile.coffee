@@ -22,10 +22,16 @@ gulp.task 'coffee', ->
 	.pipe do coffee
 	.pipe gulp.dest 'dest'
 
+gulp.task 'bower', ->
+	gulp
+	.src 'bower_components/**/*'
+	.pipe gulp.dest 'dest/bower_components'
+
+
 gulp.task 'js', ->
 	gulp
 	.src 'src/**/*.js'
-	.pipe gulp.dest 'dest'
+	.pipe gulp.dest 'dest'	
 
 gulp.task 'watch', ->
 	gulp.watch 'src/**/*.jade', ['jade']
@@ -33,5 +39,6 @@ gulp.task 'watch', ->
 	gulp.watch 'src/**/*.coffee', ['coffee']
 	gulp.watch 'src/**/*.js', ['js']
 
-gulp.task 'dev', ['jade', 'stylus', 'coffee', 'js', 'watch']
+gulp.task 'dest', ['jade', 'stylus', 'coffee', 'js', 'bower']
+gulp.task 'dev', ['dest', 'watch']
 gulp.task 'default', ['dev']

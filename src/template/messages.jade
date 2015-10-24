@@ -1,0 +1,14 @@
+script(id="messages" type="text/html")
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-label='Close')
+					span(aria-hidden='true') ×
+				h4.modal-title Chat
+			.modal-body
+				ul#messages-list
+			.modal-footer
+				.input-group
+					input.form-control.message-input(type="text" placeholder="Search for...")
+					span.input-group-btn
+						button.btn.btn-default.send-message(type="button") Send
