@@ -1,19 +1,33 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var socketio = require('socket.io');
+var mongoose = require('mongoose');
+
+var MONGO_URI = 'mongodb://' + process.env.MONGO_USER + ':' + process.env.MONGO_PASSWORD + '@ds045604.mongolab.com:45604/twitter';
+
+mongoose.connect(MONGO_URI, function () {
+	console.log('mongo connected');
+});
+
+var Tweet = mongoose.model('Tweet', {
+	author: String,
+	text: String,
+	published: Number,
+	imageUrl: String
+});
+
+var Trend = mongoose.model('Trend', {
+	name: String
+});
+
+var Message = mongoose.model('Message', {
+	clientId: String,
+	text: String
+});
 
 var app = express();
 
 app.use(bodyParser());
-
-var tweets = [
-	{author: 'Jack Bill', text: 'Here the text of the news 1 goes', published: 1444572391837, imageUrl: 'https://pbs.twimg.com/profile_images/643463843541155841/pmMygGUP_bigger.jpg'},
-	{author: 'Marry Key', text: 'Here the text 2 goes', published: 1444572403513, imageUrl: 'https://pbs.twimg.com/profile_images/643463843541155841/pmMygGUP_bigger.jpg'},
-	{author: 'Clue Bill', text: 'The text 3 of the news 1 goes', published: 1444572406073, imageUrl: 'https://pbs.twimg.com/profile_images/643463843541155841/pmMygGUP_bigger.jpg'},
-	{author: 'Lilly Key', text: 'Here the text 4 goes', published: 1444572410359, imageUrl: 'https://pbs.twimg.com/profile_images/643463843541155841/pmMygGUP_bigger.jpg'}
-];
-
-
 
 app.options('*', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
@@ -31,47 +45,40 @@ app.get('/users', function (req, res) {
 
 app.get('/tweets', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
-	res.json(tweets);
+	Tweet.find({}, function (err, tweets) {
+		res.json(tweets);
+	});
 });
 
 app.post('/tweets', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
-	tweets.push(req.body);
-	res.json(tweets);
+	Tweet.create(req.body, function (err, tweet) {
+		res.json(tweet);
+	});
 });
-
-
-
-
 
 var messages = [];
 
 app.get('/messages', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
-	res.json(messages);
+	Message.find({}, function (err, messages) {
+		res.json(messages);
+	});
 });
 
 app.post('/messages', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
-	messages.push(req.body);
-	res.json(messages);
-	io.sockets.connected[req.body.clientId].broadcast.emit('newMessage', req.body);
+	Message.create(req.body, function (err, message) {
+		res.json(message);
+		io.sockets.connected[req.body.clientId].broadcast.emit('newMessage', req.body);
+	});
 });
 
 app.get('/trends', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
-	res.json([
-		{name: '#Marr'},
-		{name: 'Jean de Villiers'},
-		{name: '#танцынатнт'},
-		{name: 'Cereal Cafe'},
-		{name: '#GratefulYammouni'},
-		{name: 'Sanusi'},
-		{name: '#НасосБезСмс'},
-		{name: 'Ron Dennis'},
-		{name: '#ThankYouALDUBNation'},
-		{name: 'Frank Tyson'}
-	]);
+	Trend.find({}, function (err, trends) {
+		res.json(trends);
+	});
 });
 
 app.get('/users/:id', function (req, res) {
@@ -86,7 +93,6 @@ var io = socketio();
 
 io.on('connection', function (socket) {
 	console.log('client connected');
-	//socket.emit('newMessage', {text: 'lala'});
 });
 
 var server = app.listen(3000, function () {
