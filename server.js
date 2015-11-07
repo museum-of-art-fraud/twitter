@@ -34,16 +34,20 @@ var User = mongoose.model('User', {
 
 var app = express();
 
-app.use(bodyParser());
-
 app.options('*', function (req, res) {
 	res.set('Access-Control-Allow-Origin', '*');
 	res.set('Access-Control-Allow-Headers', 'Content-Type');
 	res.sendStatus(200);
 });
 
-app.get('/users', function (req, res) {
+app.use(bodyParser());
+
+app.use(function (req, res, next) {
 	res.set('Access-Control-Allow-Origin', '*');
+	next();
+});
+
+app.get('/users', function (req, res) {
 	res.json([
 		{name: 'hello'},
 		{name: 'world'}
@@ -51,14 +55,12 @@ app.get('/users', function (req, res) {
 });
 
 app.get('/tweets', function (req, res) {
-	res.set('Access-Control-Allow-Origin', '*');
 	Tweet.find({}, function (err, tweets) {
 		res.json(tweets);
 	});
 });
 
 app.post('/tweets', function (req, res) {
-	res.set('Access-Control-Allow-Origin', '*');
 	Tweet.create(req.body, function (err, tweet) {
 		res.json(tweet);
 	});
@@ -67,14 +69,12 @@ app.post('/tweets', function (req, res) {
 var messages = [];
 
 app.get('/messages', function (req, res) {
-	res.set('Access-Control-Allow-Origin', '*');
 	Message.find({}, function (err, messages) {
 		res.json(messages);
 	});
 });
 
 app.post('/messages', function (req, res) {
-	res.set('Access-Control-Allow-Origin', '*');
 	Message.create(req.body, function (err, message) {
 		res.json(message);
 		io.sockets.connected[req.body.clientId].broadcast.emit('newMessage', req.body);
@@ -118,6 +118,34 @@ var io = socketio();
 
 io.on('connection', function () {
 	console.log('client connected');
+});
+
+var User = mongoose.model('User', {
+	fullname: String,
+	password: String,
+	email: String
+});
+
+
+app.post('/signup', function(req, res){
+	res.set('Access-Control-Allow-Origin', '*');
+	User.create(req.body, function(err, user){
+		res.json(user);
+	})
+});
+
+app.post('/signin', function(req,res){
+	res.set('Access-Control-Allow-Origin', '*');
+	User.findOne({
+		email: req.body.email
+	}, function(err, user){
+		if (user != null){
+			if(user.password === req.body.password){
+				res.sendStatus(200);
+			}
+		}
+		console.log(err, user);
+	});
 });
 
 var server = app.listen(3000, function () {
