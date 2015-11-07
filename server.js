@@ -95,6 +95,34 @@ io.on('connection', function (socket) {
 	console.log('client connected');
 });
 
+var User = mongoose.model('User', {
+	fullname: String,
+	password: String,
+	email: String
+});
+
+
+app.post('/signup', function(req, res){
+	res.set('Access-Control-Allow-Origin', '*');
+	User.create(req.body, function(err, user){
+		res.json(user);
+	})
+});
+
+app.post('/signin', function(req,res){
+	res.set('Access-Control-Allow-Origin', '*');
+	User.findOne({
+		email: req.body.email
+	}, function(err, user){
+		if (user != null){
+			if(user.password === req.body.password){
+				res.sendStatus(200);
+			}
+		}
+		console.log(err, user);
+	});
+});
+
 var server = app.listen(3000, function () {
 	var host = server.address().address;
 	var port = server.address().port;
