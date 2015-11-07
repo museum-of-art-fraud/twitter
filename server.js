@@ -25,6 +25,13 @@ var Message = mongoose.model('Message', {
 	text: String
 });
 
+var User = mongoose.model('User', {
+	fullName: String,
+	email: String,
+	password: String,
+	token: String
+});
+
 var app = express();
 
 app.use(bodyParser());
@@ -89,9 +96,27 @@ app.get('/users/:id', function (req, res) {
 	res.json(users[req.params.id]);
 });
 
+app.post('/signup', function (req, res) {
+	res.set('Access-Control-Allow-Origin', '*');
+	User.create(req.body, function (err, user) {
+		res.json(user);
+	});
+});
+
+app.post('/signin', function (req, res) {
+	res.set('Access-Control-Allow-Origin', '*');
+	User.find({ email: req.body.email }, function (err, user) {
+		if (user != null) {
+			if (user.password === req.body.password) {
+				res.sendStatus(200);
+			}
+		}
+	});
+});
+
 var io = socketio();
 
-io.on('connection', function (socket) {
+io.on('connection', function () {
 	console.log('client connected');
 });
 

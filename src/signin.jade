@@ -1,0 +1,16 @@
+doctype html
+html
+	head
+		link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.css')
+		link(rel='stylesheet' href="signin.css")
+	body
+		.container
+			.row
+				.col-md-4.col-md-offset-4
+					form.form-signin
+						h2.form-signin-heading Please sign in
+						input.form-control.email(placeholder='Email')
+						input.form-control.password(type='password', placeholder='Password')
+						button.btn.btn-lg.btn-primary.btn-block.signin Sign in
+		script(src='../bower_components/jquery/dist/jquery.js')
+		script(src='signin.js')

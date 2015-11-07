@@ -4,96 +4,94 @@ html
 		link(rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.css')
 		link(rel='stylesheet' href="index.css")
 	body
-		html
-body
-	nav.navbar.navbar-default
-		.container
-			ul.nav.navbar-nav
-				li.active
-					a(href='#home') Home
-				li
-					a(href='#') Notifications
-				li
-					a.messages(href='#') Messages
-			ul.nav.navbar-nav.navbar-right
-				li
-					form.navbar-form.navbar-right(role='search')
-						.input-group
-							input.form-control(type='text', placeholder='Search Twitter')
-							.input-group-btn
-								button.btn.btn-default(type='submit') Submit
-				li.dropdown
-					a.dropdown-toggle(href='#', data-toggle='dropdown')
-						img(height='20' src='https://pbs.twimg.com/profile_images/531414442739646464/Hc6G_ekH_normal.jpeg')
-					ul.dropdown-menu
-						li
-							a(href='#')
-								b Sargon Piraev
-								br
-								small View profile
-						li.divider
-						li
-							a(href='#') Lists
-						li.divider
-						li
-							a(href='#') Help
-						li
-							a(href='#') Keyboard shortcuts
-						li.divider
-						li
-							a(href='#') Settings
-						li
-							a(href='#') Log out
-				li
-					button.btn.btn-primary.navbar-btn.navbar-right.create-tweet Tweet
-	.main-region
-	.modal-region
+		nav.navbar.navbar-default
+			.container
+				ul.nav.navbar-nav
+					li.active
+						a(href='#home') Home
+					li
+						a(href='#') Notifications
+					li
+						a.messages(href='#') Messages
+				ul.nav.navbar-nav.navbar-right
+					li
+						form.navbar-form.navbar-right(role='search')
+							.input-group
+								input.form-control(type='text', placeholder='Search Twitter')
+								.input-group-btn
+									button.btn.btn-default(type='submit') Submit
+					li.dropdown
+						a.dropdown-toggle(href='#', data-toggle='dropdown')
+							img(height='20' src='https://pbs.twimg.com/profile_images/531414442739646464/Hc6G_ekH_normal.jpeg')
+						ul.dropdown-menu
+							li
+								a(href='#')
+									b Sargon Piraev
+									br
+									small View profile
+							li.divider
+							li
+								a(href='#') Lists
+							li.divider
+							li
+								a(href='#') Help
+							li
+								a(href='#') Keyboard shortcuts
+							li.divider
+							li
+								a(href='#') Settings
+							li
+								a(href='#') Log out
+					li
+						button.btn.btn-primary.navbar-btn.navbar-right.create-tweet Tweet
+		.main-region
+		.modal-region
 
-	include ./template/user-suggestion
-	include ./template/trend
-	include ./template/trends
-	include ./template/home-page-profile-template
-	include ./template/tweet
-	include template/who-to-follow-composite-view-template
-	include template/who-to-follow-item-view-template
-	include template/home-page-template
-	include template/profile-page-template
-	include template/create-tweet-modal-template
-	include template/message
-	include template/messenger-composite-view-template
+		include ./template/user-suggestion
+		include ./template/trend
+		include ./template/trends
+		include ./template/home-page-profile-template
+		include ./template/tweet
+		include template/who-to-follow-composite-view-template
+		include template/who-to-follow-item-view-template
+		include template/home-page-template
+		include template/profile-page-template
+		include template/create-tweet-modal-template
+		include template/message
+		include template/messenger-composite-view-template
 
-	script(src='../bower_components/jquery/dist/jquery.js')
-	script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
-	script(src='../bower_components/underscore/underscore.js')
-	script(src='../bower_components/backbone/backbone.js')
-	script(src='../bower_components/marionette/lib/backbone.marionette.js')
-	script(src='bower_components/socket.io-client/socket.io.js')
-	script(src='model/UserModel.js')
-	script(src='model/TrendModel.js')
-	script(src='model/TweetModel.js')
-	script(src='model/MessageModel.js')
-	script(src='collection/MessageCollection.js')
-	script(src='collection/UserCollection.js')
-	script(src='collection/TrendCollection.js')
-	script(src='collection/TweetCollection.js')
-	script(src='view/UserSuggestionItemView.js')
-	script(src='view/UserSuggestionCollectionView.js')
-	script(src='view/TweetItemView.js')
-	script(src='view/TweetCollectionView.js')
-	script(src='view/TrendItemView.js')
-	script(src='view/TrendCompositeView.js')
-	script(src='view/HomePageProfileItemView.js')
-	script(src='view/WhoToFollowItemView.js')
-	script(src='view/WhoToFollowCompositeView.js')
-	script(src='view/RootLayoutView.js')
-	script(src='view/HomePageLayoutView.js')
-	script(src='view/ProfilePageLayoutView.js')
-	script(src='view/CreateTweetItemView.js')
-	script(src='view/MessageItemView.js')
-	script(src='view/MessengerCompositeView.js')
-	script(src='Application.js')
-	script(src='Router.js')
-	script(src='Controller.js')
-	script(src='index.js')
+		script(src='../bower_components/jquery/dist/jquery.js')
+		script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
+		script(src='../bower_components/underscore/underscore.js')
+		script(src='../bower_components/backbone/backbone.js')
+		script(src='../bower_components/marionette/lib/backbone.marionette.js')
+		script(src='bower_components/socket.io-client/socket.io.js')
+		script(src='model/UserModel.js')
+		script(src='model/TrendModel.js')
+		script(src='model/TweetModel.js')
+		script(src='model/MessageModel.js')
+		script(src='collection/MessageCollection.js')
+		script(src='collection/UserCollection.js')
+		script(src='collection/TrendCollection.js')
+		script(src='collection/TweetCollection.js')
+		script(src='view/UserSuggestionItemView.js')
+		script(src='view/UserSuggestionCollectionView.js')
+		script(src='view/TweetItemView.js')
+		script(src='view/TweetCollectionView.js')
+		script(src='view/TrendItemView.js')
+		script(src='view/TrendCompositeView.js')
+		script(src='view/HomePageProfileItemView.js')
+		script(src='view/WhoToFollowItemView.js')
+		script(src='view/WhoToFollowCompositeView.js')
+		script(src='view/RootLayoutView.js')
+		script(src='view/HomePageLayoutView.js')
+		script(src='view/ProfilePageLayoutView.js')
+		script(src='view/CreateTweetItemView.js')
+		script(src='view/MessageItemView.js')
+		script(src='view/MessengerCompositeView.js')
+		script(src='Application.js')
+		script(src='Router.js')
+		script(src='Controller.js')
+		script(src='index.js')
 
 
